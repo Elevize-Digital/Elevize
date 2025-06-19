@@ -1,0 +1,153 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --background: 0 0% 100%; /* White */
+  --foreground: 0 0% 10%; /* Dark Grey / Near Black */
+  --card: 0 0% 98%; /* Light Grey */
+  --card-foreground: 0 0% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  --primary: 0 0% 13%; /* Black */
+  --primary-foreground: 0 0% 98%; /* Light Grey */
+  --secondary: 0 0% 90%; /* Medium Grey */
+  --secondary-foreground: 0 0% 10%;
+  --muted: 0 0% 95%; /* Light Grey */
+  --muted-foreground: 0 0% 40%; /* Medium Dark Grey */
+  --accent: 0 0% 90%;
+  --accent-foreground: 0 0% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 85%; /* Grey border */
+  --input: 0 0% 85%;
+  --ring: 0 0% 13%;
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gradient-bg-monochrome {
+  background: linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(0, 0%, 100%) 100%); /* Lighter grey to white */
+}
+
+.gradient-text-monochrome {
+  background: linear-gradient(135deg, hsl(0, 0%, 20%) 0%, hsl(0, 0%, 0%) 100%); /* Dark grey to black */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animated-gradient-text {
+  background-size: 250% 250%;
+  background-image: linear-gradient(
+    -45deg,
+    hsl(0, 0%, 10%) 0%,
+    hsl(0, 0%, 35%) 25%,
+    hsl(0, 0%, 55%) 50%,
+    hsl(0, 0%, 35%) 75%,
+    hsl(0, 0%, 10%) 100%
+  );
+  animation: AnimateGradient 6s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block; /* Important for background clip to work as expected */
+}
+
+@keyframes AnimateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glass-effect-monochrome {
+  background: hsla(0, 0%, 50%, 0.1); /* Grey with transparency for better contrast */
+  backdrop-filter: blur(12px);
+  border: 1px solid hsla(0, 0%, 100%, 0.15);
+}
+
+.card-hover {
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px -12px hsla(0, 0%, 0%, 0.15); /* Softer black shadow */
+}
+
+.floating-animation {
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(5deg);
+  }
+}
+
+.pulse-glow-monochrome {
+  animation: pulse-glow-monochrome 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-glow-monochrome {
+  0%, 100% {
+    box-shadow: 0 0 25px hsla(0, 0%, 60%, 0.3); /* Muted grey glow */
+  }
+  50% {
+    box-shadow: 0 0 45px hsla(0, 0%, 60%, 0.6);
+  }
+}
+
+.button-primary-monochrome {
+  background: linear-gradient(135deg, hsl(0, 0%, 20%) 0%, hsl(0, 0%, 8%) 100%); /* Darker grey to richer black */
+  color: hsl(var(--primary-foreground));
+}
+
+.button-primary-monochrome:hover {
+  background: linear-gradient(135deg, hsl(0, 0%, 25%) 0%, hsl(0, 0%, 12%) 100%);
+}
+
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 4rem 0;
+  }
+  .text-5xl {
+    font-size: 2.5rem; /* Adjust for smaller screens */
+  }
+   .text-7xl {
+    font-size: 3.5rem; /* Adjust for smaller screens */
+  }
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
